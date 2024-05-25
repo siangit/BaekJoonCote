@@ -1,20 +1,17 @@
+from sys import stdin
+
 n=int(input())
 stack=[]
 
 for _ in range(n):
-    h = int(input())
+    h = int(stdin.readline())
 
     if not stack:
         stack.append(h)
         continue
 
-    while True:
-        if not stack:
-            break
-        if stack[-1] <= h:
-            stack.pop()
-        else:
-            break
+    while stack and stack[-1] <= h:
+        stack.pop()
 
     stack.append(h)
 
